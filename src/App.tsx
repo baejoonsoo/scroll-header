@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import * as S from './style/app';
 
 function App() {
   const handleScroll = () => {
@@ -10,7 +11,11 @@ function App() {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return <div style={{ height: '300vh' }}></div>;
+  return (
+    <S.Page>
+      <S.Header>헤더</S.Header>
+    </S.Page>
+  );
 }
 
 export default App;
