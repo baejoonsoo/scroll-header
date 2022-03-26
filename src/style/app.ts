@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Page = styled.main`
   height: 400vh;
@@ -16,7 +16,12 @@ export const Header = styled.header`
   z-index: 1;
   transition: 0.4s ease;
 
-  &.hide {
-    transform: translateY(-80px);
-  }
+  ${({ hide }: { hide: boolean }) => {
+    return (
+      hide &&
+      css`
+        transform: translateY(-80px);
+      `
+    );
+  }}
 `;
