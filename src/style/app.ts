@@ -17,6 +17,7 @@ export const Header = styled.header`
   transition: 0.4s ease;
 
   ${({ hide }: { hide: boolean }) => {
+    console.log('s, ' + hide);
     return (
       hide &&
       css`

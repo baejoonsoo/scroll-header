@@ -7,24 +7,31 @@ function App() {
   const [pageY, setPageY] = useState<number>(0); // 스크롤 정도 저장
   const doc = useRef(document);
 
-  const handleScroll = () => {
-    const { pageYOffset } = window;
+  const headerMoving = (direction: string) => {
+    if (direction === 'up') {
+      // header.className = '';
+      console.log('up');
+      setHide(false);
+    } else if (direction === 'down') {
+      // header.className = 'scrollDown';
+      console.log('down');
+      setHide(true);
+    }
+  };
 
-    // 이전 스크롤 양과 현재 양의 차이
-    const deltaY = pageYOffset - pageY;
-
-    // 스크롤 위치가 0이 아니고 변화량이 0보다 클 때 true를 저장
-
-    const hides = pageYOffset !== 0 && deltaY >= 0;
-
-    setHide(hides);
-    setPageY(pageYOffset);
+  let prevScrollTop = 0;
+  const onScroll = () => {
+    var nextScrollTop = window.pageYOffset || 0; // pageYOffset -> IE 8 이하 빼고 다 됨.
+    if (nextScrollTop > prevScrollTop) {
+      headerMoving('down');
+    } else if (nextScrollTop < prevScrollTop) {
+      headerMoving('up');
+    }
+    prevScrollTop = nextScrollTop;
   };
 
   useEffect(() => {
-    doc.current.addEventListener('scroll', handleScroll);
-
-    return () => doc.current.removeEventListener('scroll', handleScroll);
+    doc.current.addEventListener('scroll', onScroll);
   }, []);
 
   return (
