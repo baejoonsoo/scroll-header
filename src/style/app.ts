@@ -16,13 +16,9 @@ export const Header = styled.header`
   z-index: 1;
   transition: 0.4s ease;
 
-  ${({ hide }: { hide: boolean }) => {
-    console.log('s, ' + hide);
-    return (
-      hide &&
-      css`
-        transform: translateY(-80px);
-      `
-    );
-  }}
+  ${({ hide }: { hide: boolean }) =>
+    hide &&
+    css`
+      transform: translateY(-80px);
+    `}
 `;
