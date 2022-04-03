@@ -4,7 +4,7 @@ import * as S from './style/app';
 
 function App() {
   const [hide, setHide] = useState<boolean>(false); // 헤더 가림 유무
-  const doc = useRef(document);
+  const doc = useRef<Document>(document);
 
   const headerMoving = (direction: string) => {
     if (direction === 'up') {
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <S.Page>
-      <S.Header hide={hide}>header</S.Header>
+      <S.Header hide={hide}>스크롤 방향에 따라 사라지고 나타나는 헤더</S.Header>
     </S.Page>
   );
 }

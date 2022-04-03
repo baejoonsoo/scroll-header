@@ -6,9 +6,13 @@ export const Page = styled.main`
 `;
 
 export const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 80px;
   width: 100%;
-  background-color: yellow;
+  background-color: #707070;
+  color: white;
 
   position: fixed;
   top: 0;
