@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Page = styled.main`
   height: 400vh;
-  background: linear-gradient(to top, red, white);
+  background: linear-gradient(to top, #b197fc, white);
 `;
 
 export const Header = styled.header`
